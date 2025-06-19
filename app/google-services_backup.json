@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "259419739403",
+    "project_id": "finddogapp",
+    "storage_bucket": "finddogapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259419739403:android:242734af1ea4a9b898be0e",
+        "android_client_info": {
+          "package_name": "com.inhatc.android_FindDogApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsDU00LbbWXCaUelQpL0jKfGcqRh4hkWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259419739403:android:faf5c95abcaabd5398be0e",
+        "android_client_info": {
+          "package_name": "com.inhatc.finddogapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsDU00LbbWXCaUelQpL0jKfGcqRh4hkWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

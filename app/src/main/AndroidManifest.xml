@@ -18,15 +18,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindDogApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ReportActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -34,17 +36,16 @@
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />
-
         <activity
             android:name=".HomeActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".MainMapActivity"
             tools:ignore="Instantiatable" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAqJ2_Js5Tt5fpe5kxIrQ13vYocC66OuRo" /> <!-- 🔑 Google Maps API 키 -->
+            android:value="AIzaSyADU059UOkWn2G4xrTSEX9u4sTAgLqJdQU" />
     </application>
 
 </manifest>
