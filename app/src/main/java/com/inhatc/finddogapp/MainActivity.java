@@ -10,9 +10,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 public class MainActivity extends AppCompatActivity {
 
     Button btnSignUp, btnLogin;
@@ -42,14 +39,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
-
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-
-        }
-    }
-
+}

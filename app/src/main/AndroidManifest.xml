@@ -21,10 +21,15 @@
         <activity
             android:name=".ReportActivity"
             android:exported="true" />
+
+        <activity android:name=".MyPage" />
+
+        <activity android:name=".ReportListActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true" >
-        <intent-filter>
+
+            <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
