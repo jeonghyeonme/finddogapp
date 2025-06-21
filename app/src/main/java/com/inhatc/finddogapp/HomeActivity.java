@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // 마이페이지 클릭 -> MyPage로 이동
         btnMyPage.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, MyPage.class);
+            Intent intent = new Intent(HomeActivity.this, MyPageActivity.class);
             startActivity(intent);
         });
 

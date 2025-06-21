@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -170,7 +171,10 @@ public class ReportActivity extends AppCompatActivity {
                 });
     }
     private void saveReport(String description, String imageUrl) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         Report report = new Report(currentLatitude, currentLongitude, description, imageUrl);
+        report.setUserId(uid);
+
         databaseRef.push().setValue(report)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "신고가 등록되었습니다.", Toast.LENGTH_SHORT).show();

@@ -23,7 +23,7 @@
             android:name=".ReportActivity"
             android:exported="true" />
 
-        <activity android:name=".MyPage" />
+        <activity android:name=".MyPageActivity" />
 
         <activity android:name=".ReportListActivity" />
         <activity

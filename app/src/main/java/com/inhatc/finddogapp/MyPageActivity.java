@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MyPage extends AppCompatActivity {
+public class MyPageActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView imageView;
@@ -50,24 +50,24 @@ public class MyPage extends AppCompatActivity {
 
 
         btnReportList.setOnClickListener(v -> {
-            Intent intent = new Intent(MyPage.this, ReportListActivity.class);
+            Intent intent = new Intent(MyPageActivity.this, ReportListActivity.class);
             startActivity(intent);
         });
 
         // 회원탈퇴 기능
         btnWithdraw.setOnClickListener(v -> {
-            new AlertDialog.Builder(MyPage.this)
+            new AlertDialog.Builder(MyPageActivity.this)
                     .setTitle("회원 탈퇴")
                     .setMessage("정말 탈퇴하시겠습니까?")
                     .setPositiveButton("예", (dialog, which) -> {
                         FirebaseAuth.getInstance().getCurrentUser().delete()
                                 .addOnCompleteListener(task -> {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(MyPage.this, "회원 탈퇴 완료", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(MyPage.this, LoginActivity.class));
+                                        Toast.makeText(MyPageActivity.this, "회원 탈퇴 완료", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(MyPageActivity.this, LoginActivity.class));
                                         finish();
                                     } else {
-                                        Toast.makeText(MyPage.this, "탈퇴 실패: 다시 로그인 후 시도하세요", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MyPageActivity.this, "탈퇴 실패: 다시 로그인 후 시도하세요", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     })
@@ -77,7 +77,7 @@ public class MyPage extends AppCompatActivity {
 
 
         btnHome.setOnClickListener(v -> {
-            Intent intent = new Intent(MyPage.this, HomeActivity.class);
+            Intent intent = new Intent(MyPageActivity.this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });
@@ -85,8 +85,8 @@ public class MyPage extends AppCompatActivity {
         // 로그아웃 기능
         btnLogOut.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
-            Toast.makeText(MyPage.this, "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MyPage.this, LoginActivity.class);
+            Toast.makeText(MyPageActivity.this, "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MyPageActivity.this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();

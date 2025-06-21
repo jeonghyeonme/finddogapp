@@ -5,6 +5,7 @@ public class Report {
     private double longitude;
     private String description;
     private String imageUrl;
+    private String userId; // ✅ 사용자 ID 필드 추가
 
     // Firebase에서 객체로 매핑할 때 반드시 필요한 기본 생성자
     public Report() {
@@ -49,5 +50,13 @@ public class Report {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getUserId() {  // ✅ userId getter
+        return userId;
+    }
+
+    public void setUserId(String userId) {  // ✅ userId setter
+        this.userId = userId;
     }
 }

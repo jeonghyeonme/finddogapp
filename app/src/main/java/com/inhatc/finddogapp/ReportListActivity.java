@@ -2,6 +2,7 @@ package com.inhatc.finddogapp;
 
 import android.os.Bundle;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,8 +37,8 @@ public class ReportListActivity extends AppCompatActivity {
 
     private void loadMyReports() {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("reports");
+
         ref.orderByChild("userId").equalTo(userId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -45,7 +46,9 @@ public class ReportListActivity extends AppCompatActivity {
                         reportList.clear();
                         for (DataSnapshot child : snapshot.getChildren()) {
                             Report report = child.getValue(Report.class);
-                            reportList.add(report);
+                            if (report != null) {
+                                reportList.add(report);
+                            }
                         }
                         adapter.notifyDataSetChanged();
                     }
