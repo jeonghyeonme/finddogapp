@@ -58,7 +58,6 @@
                 android:background="#EEEEEE"
                 android:gravity="top|start"
                 android:hint="간단한 설명을 입력하세요"
-                android:inputType="textMultiLine"
                 android:padding="12dp"
                 android:textSize="16sp" />
 

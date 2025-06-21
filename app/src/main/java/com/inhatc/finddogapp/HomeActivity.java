@@ -31,9 +31,10 @@ public class HomeActivity extends AppCompatActivity {
             startActivityForResult(intent, REQUEST_CODE_REPORT);
         });
 
-        // 마이페이지: 아직 미구현
+        // 마이페이지 클릭 -> MyPage로 이동
         btnMyPage.setOnClickListener(v -> {
-            Toast.makeText(HomeActivity.this, "마이페이지 기능은 준비 중입니다.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HomeActivity.this, MyPage.class);
+            startActivity(intent);
         });
 
         // 지도 보기: 기존 로직 유지 (추후 필요시 수정)
@@ -41,6 +42,8 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(HomeActivity.this, MainMapActivity.class);
             startActivity(intent);
         });
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
