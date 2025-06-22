@@ -2,7 +2,6 @@ package com.inhatc.finddogapp;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -21,10 +20,13 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-
+    private Map<Marker, Report> markerReportMap = new HashMap<>();
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationClient;
     private DatabaseReference reportsRef;
@@ -49,7 +51,6 @@ public class MainMapActivity extends FragmentActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(MainMapActivity.this));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -61,7 +62,6 @@ public class MainMapActivity extends FragmentActivity implements OnMapReadyCallb
 
         mMap.setMyLocationEnabled(true);
 
-        // 현재 위치를 지도 중심으로 이동
         fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
             if (location != null) {
                 LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
@@ -69,21 +69,37 @@ public class MainMapActivity extends FragmentActivity implements OnMapReadyCallb
             }
         });
 
-        // Firebase로부터 제보 데이터 가져와 마커 표시
+        // ✅ 마커 클릭 시 BottomSheet 연결
+        mMap.setOnMarkerClickListener(marker -> {
+            Report report = markerReportMap.get(marker);
+            if (report != null) {
+                ReportPreviewBottomSheet sheet = ReportPreviewBottomSheet.newInstance(report);
+                sheet.show(getSupportFragmentManager(), "report_preview");
+            }
+            return true;
+        });
+
+        // Firebase 제보 데이터 불러오기
         reportsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mMap.clear(); // 기존 마커 초기화
+                mMap.clear();
+                markerReportMap.clear();
+
                 for (DataSnapshot reportSnapshot : snapshot.getChildren()) {
                     Report report = reportSnapshot.getValue(Report.class);
                     if (report != null) {
+                        // ID 수동 설정
+                        report.setId(reportSnapshot.getKey());
+
                         LatLng location = new LatLng(report.getLatitude(), report.getLongitude());
                         Marker marker = mMap.addMarker(new MarkerOptions()
                                 .position(location)
                                 .title("유기견 제보")
                                 .snippet(report.getDescription()));
+
                         if (marker != null) {
-                            marker.setTag(report.getImageUrl()); // Tag에 이미지 URL 저장
+                            markerReportMap.put(marker, report); // ✅ 마커에 Report 연결
                         }
                     }
                 }

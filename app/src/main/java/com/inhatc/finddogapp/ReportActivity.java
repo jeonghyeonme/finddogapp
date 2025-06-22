@@ -11,14 +11,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.google.android.gms.location.Priority;
 
 
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;

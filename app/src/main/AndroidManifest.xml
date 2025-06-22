@@ -4,7 +4,6 @@
     package="com.inhatc.finddogapp">
     <!-- 권한 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission
         android:name="android.permission.ACCESS_COARSE_LOCATION"
         tools:ignore="CoarseFineLocation" />
@@ -20,33 +19,33 @@
         android:theme="@style/Theme.FindDogApp"
         tools:targetApi="31">
         <activity
-            android:name=".ReportActivity"
-            android:exported="true" />
-
-        <activity android:name=".MyPageActivity" />
-
-        <activity android:name=".ReportListActivity" />
+            android:name="com.inhatc.finddogapp.ReportDetailActivity"
+            android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" >
-
+            android:name="com.inhatc.finddogapp.ReportActivity"
+            android:exported="true" />
+        <activity android:name="com.inhatc.finddogapp.MyPageActivity" />
+        <activity android:name="com.inhatc.finddogapp.ReportListActivity" />
+        <activity
+            android:name="com.inhatc.finddogapp.MainActivity"
+            android:exported="true">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.inhatc.finddogapp.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".SignUpActivity"
+            android:name="com.inhatc.finddogapp.SignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name="com.inhatc.finddogapp.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".MainMapActivity"
+            android:name="com.inhatc.finddogapp.MainMapActivity"
             tools:ignore="Instantiatable" />
 
         <meta-data

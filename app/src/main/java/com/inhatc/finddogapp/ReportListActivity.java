@@ -29,7 +29,7 @@ public class ReportListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         reportList = new ArrayList<>();
-        adapter = new ReportAdapter(reportList);
+        adapter = new ReportAdapter(this, reportList);
         recyclerView.setAdapter(adapter);
 
         loadMyReports();
@@ -47,6 +47,8 @@ public class ReportListActivity extends AppCompatActivity {
                         for (DataSnapshot child : snapshot.getChildren()) {
                             Report report = child.getValue(Report.class);
                             if (report != null) {
+                                report.setId(child.getKey());
+                                report.setUserId(child.child("userId").getValue(String.class));
                                 reportList.add(report);
                             }
                         }

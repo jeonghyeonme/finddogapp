@@ -1,15 +1,14 @@
 package com.inhatc.finddogapp;
 
 public class Report {
+    private String id;            // ✅ report ID 필드 추가
     private double latitude;
     private double longitude;
     private String description;
     private String imageUrl;
-    private String userId; // ✅ 사용자 ID 필드 추가
+    private String userId;        // ✅ 사용자 ID 필드
 
-    // Firebase에서 객체로 매핑할 때 반드시 필요한 기본 생성자
-    public Report() {
-    }
+    public Report() {}
 
     public Report(double latitude, double longitude, String description, String imageUrl) {
         this.latitude = latitude;
@@ -19,6 +18,13 @@ public class Report {
     }
 
     // Getter & Setter
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public double getLatitude() {
         return latitude;
@@ -52,11 +58,11 @@ public class Report {
         this.imageUrl = imageUrl;
     }
 
-    public String getUserId() {  // ✅ userId getter
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {  // ✅ userId setter
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 }

@@ -7,12 +7,14 @@
     android:padding="24dp"
     android:gravity="center">
 
+    <!-- 이메일 입력 -->
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="이메일" />
 
+    <!-- 비밀번호 입력 -->
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="match_parent"
@@ -20,6 +22,38 @@
         android:hint="비밀번호"
         android:inputType="textPassword" />
 
+    <!-- 비밀번호 안내 문구 -->
+    <TextView
+        android:id="@+id/textPasswordHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="※ 비밀번호는 6자 이상이어야 합니다."
+        android:textSize="12sp"
+        android:textColor="#666666"
+        android:paddingTop="4dp"
+        android:paddingBottom="12dp" />
+
+    <!-- 캡챠 문제 텍스트 -->
+    <TextView
+        android:id="@+id/textCaptchaQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다음 계산의 결과는? 3 + 5 = ?"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- 캡챠 정답 입력 -->
+    <EditText
+        android:id="@+id/editCaptchaAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="정답 입력 (숫자)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 회원가입 버튼 -->
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- 썸네일 이미지 -->
+    <ImageView
+        android:id="@+id/imagePreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_menu_gallery"
+        android:contentDescription="제보 이미지 미리보기" />
+
+    <!-- 간단 설명 -->
+    <TextView
+        android:id="@+id/textPreviewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="제보 설명이 여기에 표시됩니다."
+        android:textSize="16sp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"
+        android:textColor="#000000" />
+
+    <!-- 작성자 -->
+    <TextView
+        android:id="@+id/textPreviewReporter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="작성자: 익명0000"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:paddingBottom="12dp" />
+
+    <!-- 상세 보기 버튼 -->
+    <Button
+        android:id="@+id/buttonDetailView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="상세 보기"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:paddingVertical="12dp"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+</LinearLayout>
